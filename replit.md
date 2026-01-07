@@ -30,7 +30,23 @@ src/
 - **Dev Server**: Runs on port 5000
 - **Command**: `npm run dev`
 
-## Deployment
-- **Type**: Static site
-- **Build**: `npm run build`
-- **Output**: `dist/` directory
+## GitHub Deployment (Manual)
+To push this project to GitHub using the provided `GITHUB_TOKEN`:
+1. Open the **Shell** tab.
+2. Run the following commands:
+   ```bash
+   # Initialize git (if not already done)
+   git init
+   git config user.email "your-email@example.com"
+   git config user.name "Your Name"
+   git add .
+   git commit -m "Initial commit from Replit"
+
+   # Create a repository on GitHub (replace <repo-name> with your choice)
+   curl -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/user/repos -d '{"name":"<repo-name>"}'
+
+   # Add remote and push
+   git remote add origin https://x-access-token:$GITHUB_TOKEN@github.com/your-username/<repo-name>.git
+   git branch -M main
+   git push -u origin main
+   ```
