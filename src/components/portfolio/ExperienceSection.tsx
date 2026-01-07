@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Building2, MapPin, Calendar, ChevronDown, ChevronUp, CheckCircle2 } from "lucide-react";
+import { Building2, MapPin, Calendar, ChevronDown, ChevronUp, CheckCircle2, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const achievements = [
@@ -12,6 +12,7 @@ const achievements = [
   "Introduced Jira dashboards and metrics-driven delivery practices",
   "Drove cross-functional alignment with Product, Architecture, and QA teams",
   "Led compliance tracking and strategic goal alignment initiatives",
+  "Led convergence across varied stakeholders in complex deliveries",
 ];
 
 export const ExperienceSection = () => {
@@ -22,7 +23,7 @@ export const ExperienceSection = () => {
   const displayedAchievements = isExpanded ? achievements : achievements.slice(0, 4);
 
   return (
-    <section id="experience" className="py-20 md:py-32">
+    <section id="experience" className="py-24 md:py-32 bg-[#0B0B0F] relative">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
@@ -30,105 +31,101 @@ export const ExperienceSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          {/* Section Header */}
-          <div className="text-center mb-12">
-            <p className="text-primary font-medium mb-2">Experience</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Professional Journey
-            </h2>
-            <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+          {/* Design Layout: Big Header + Small Sub */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-white/10 pb-12">
+            <div>
+              <span className="text-primary font-mono text-xs tracking-widest uppercase mb-4 block">/ EXPERIENCE</span>
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">
+                Professional <br />
+                <span className="text-muted-foreground italic font-serif opacity-50">Journey</span>
+              </h2>
+            </div>
+            <div className="max-w-md">
+              <p className="text-xl text-muted-foreground">
+                I enjoy solving problems with clean scalable solutions. I have a genuine passion for inspiring design and agile leadership.
+              </p>
+            </div>
           </div>
 
-          {/* Experience Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="max-w-4xl mx-auto"
-          >
-            <div className="glass p-8 md:p-10 rounded-2xl relative overflow-hidden">
-              {/* Decorative accent */}
-              <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-primary to-primary/50" />
+          <div className="grid lg:grid-cols-12 gap-12 max-w-7xl mx-auto">
+            {/* Stats Sidebar from Image */}
+            <div className="lg:col-span-4 flex flex-col gap-12">
+              <div className="flex flex-col gap-2">
+                <span className="text-5xl font-bold text-primary">13+</span>
+                <span className="text-sm font-semibold uppercase tracking-widest opacity-50">Years of Experience</span>
+              </div>
+              <div className="flex flex-col gap-2">
+                <span className="text-5xl font-bold text-primary">199+</span>
+                <span className="text-sm font-semibold uppercase tracking-widest opacity-50">Satisfied Stakeholders</span>
+              </div>
               
-              {/* Header */}
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
-                <div>
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <Building2 className="w-6 h-6 text-primary" />
+              <div className="mt-8 p-6 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
+                 <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Trophy className="w-6 h-6 text-primary" />
+                 </div>
+                 <div>
+                    <p className="text-xs uppercase tracking-widest opacity-50">Current Role</p>
+                    <p className="font-bold">Project Lead @ SAP</p>
+                 </div>
+              </div>
+            </div>
+
+            {/* Experience Card */}
+            <div className="lg:col-span-8">
+              <div className="bg-[#14141A] p-8 md:p-12 rounded-3xl border border-white/5 relative group">
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-10">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:bg-primary/20 transition-colors">
+                      <Building2 className="w-8 h-8 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-xl md:text-2xl font-bold">SAP</h3>
-                      <p className="text-lg font-medium text-primary">
-                        Senior Scrum Master & Project Lead
-                      </p>
+                      <h3 className="text-2xl md:text-3xl font-bold">SAP</h3>
+                      <p className="text-lg text-primary font-medium tracking-tight">Senior Scrum Master & Project Lead</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-end gap-1">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground bg-white/5 px-3 py-1 rounded-full">
+                      <Calendar className="w-3 h-3" />
+                      <span>Jan 2025 – Present</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground mt-2">
+                      <MapPin className="w-3 h-3" />
+                      <span>Bengaluru, India</span>
                     </div>
                   </div>
                 </div>
-                
-                <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
-                    <span>Jan 2025 – Present</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <MapPin className="w-4 h-4" />
-                    <span>Bengaluru, India</span>
-                  </div>
+
+                <div className="grid md:grid-cols-2 gap-x-8 gap-y-4 mb-10">
+                  {displayedAchievements.map((achievement, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: 0.1 * index }}
+                      className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"
+                    >
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <p className="text-muted-foreground text-sm leading-relaxed">{achievement}</p>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <div className="flex justify-center border-t border-white/5 pt-8">
+                  <Button
+                    variant="ghost"
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="rounded-full text-primary hover:bg-primary/10 px-8"
+                  >
+                    {isExpanded ? (
+                      <><ChevronUp className="mr-2 w-4 h-4" /> Show Less</>
+                    ) : (
+                      <><ChevronDown className="mr-2 w-4 h-4" /> View All Responsibilities</>
+                    )}
+                  </Button>
                 </div>
               </div>
-
-              {/* Achievements */}
-              <div className="space-y-3">
-                {displayedAchievements.map((achievement, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.3 + index * 0.1, duration: 0.4 }}
-                    className="flex items-start gap-3"
-                  >
-                    <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <p className="text-muted-foreground">{achievement}</p>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Expand/Collapse Button */}
-              {achievements.length > 4 && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setIsExpanded(!isExpanded)}
-                  className="mt-4 text-primary hover:text-primary/80"
-                >
-                  {isExpanded ? (
-                    <>
-                      Show Less <ChevronUp className="ml-1 w-4 h-4" />
-                    </>
-                  ) : (
-                    <>
-                      Show More <ChevronDown className="ml-1 w-4 h-4" />
-                    </>
-                  )}
-                </Button>
-              )}
-
-              {/* Highlight Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.6, duration: 0.4 }}
-                className="mt-6 p-4 rounded-xl bg-primary/5 border border-primary/20"
-              >
-                <p className="text-sm font-medium text-primary mb-1">Key Highlight</p>
-                <p className="text-foreground">
-                  Built and deployed an <span className="font-semibold">AI-assisted Sprint Capacity Tracker</span> that 
-                  replaced manual Excel-based planning, significantly improving sprint predictability and team efficiency.
-                </p>
-              </motion.div>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

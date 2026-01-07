@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Linkedin, Briefcase, Sparkles, Clock } from "lucide-react";
+import { ArrowDown, Linkedin, Briefcase, Sparkles, Clock, Globe, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import shamanthPhoto from "@/assets/shamanth-photo.png";
 
 const stats = [
-  { icon: Clock, label: "13+ Years Experience" },
-  { icon: Briefcase, label: "SAP Senior Scrum Master" },
-  { icon: Sparkles, label: "AI Solutions Builder" },
+  { icon: Clock, label: "13+ Years Experience", color: "bg-blue-500/20" },
+  { icon: Briefcase, label: "Project Lead @ SAP", color: "bg-purple-500/20" },
+  { icon: Sparkles, label: "AI-First Builder", color: "bg-orange-500/20" },
 ];
 
 export const HeroSection = () => {
@@ -17,140 +17,157 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-[#0B0B0F]"
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0 hero-gradient" />
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
+      {/* Dynamic Background Elements */}
+      <div className="absolute inset-0">
+        <div className="circle-glow top-1/4 left-1/4 bg-primary" />
+        <div className="circle-glow bottom-1/4 right-1/4 bg-purple-600" />
+        
+        {/* Floating Rings */}
+        <motion.div 
+          className="circle-border w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
-        <motion.div
-          className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.5, 0.3, 0.5],
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
+        <motion.div 
+          className="circle-border w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5"
+          animate={{ rotate: -360 }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          {/* Photo */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+          
+          {/* Content Left */}
+          <div className="text-center lg:text-left flex-1 order-2 lg:order-1">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
+                 <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">
+                   Available for Leadership Roles
+                 </span>
+              </div>
+              
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-[1.1]">
+                Shamanth <br />
+                <span className="text-muted-foreground opacity-50 italic font-serif">Kumar M</span>
+              </h1>
+              
+              <div className="flex flex-col gap-4 mb-8">
+                <p className="text-xl md:text-2xl text-muted-foreground max-w-xl">
+                  Project Lead • Agile Delivery Leader • AI-First Builder.
+                  <span className="block mt-2 font-medium text-foreground">
+                    "Clarity. Ownership. Impact."
+                  </span>
+                </p>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
+                <Button
+                  size="lg"
+                  onClick={scrollToProjects}
+                  className="rounded-full px-8 bg-primary hover:bg-primary/90 text-white min-h-12 text-lg"
+                >
+                  Explore Works
+                  <ArrowDown className="ml-2 h-5 w-5" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-8 border-white/10 hover:bg-white/5 min-h-12 text-lg"
+                  asChild
+                >
+                  <a
+                    href="https://linkedin.com/in/shamanthkumarm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Linkedin className="mr-2 h-5 w-5" />
+                    Connect
+                  </a>
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Floating Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 + index * 0.1 }}
+                  className="flex items-center gap-3 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group"
+                >
+                  <div className={`p-2 rounded-xl ${stat.color} group-hover:scale-110 transition-transform`}>
+                    <stat.icon className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-sm font-semibold tracking-wide uppercase opacity-70 group-hover:opacity-100 transition-opacity">
+                    {stat.label}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Image Right */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="relative"
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="relative flex-1 order-1 lg:order-2"
           >
             <div className="relative">
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full blur-2xl scale-110" />
-              
-              {/* Photo container */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-background shadow-2xl">
-                <img
-                  src={shamanthPhoto}
-                  alt="Shamanth Kumar M"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-              {/* Floating badge */}
-              <motion.div
-                className="absolute -bottom-2 -right-2 glass px-4 py-2 rounded-full shadow-lg"
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
+              {/* Decorative Circles from Design */}
+              <motion.div 
+                className="circle-border w-24 h-24 -top-8 -left-8 bg-blue-500 text-white z-20 shadow-2xl"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity }}
               >
-                <span className="text-sm font-medium text-primary">Available for Leadership Roles</span>
+                Project<br/>Lead
               </motion.div>
+              
+              <motion.div 
+                className="circle-border w-32 h-32 bottom-12 -right-8 bg-primary text-white z-20 shadow-2xl"
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
+              >
+                AI-First<br/>Builder
+              </motion.div>
+
+              {/* Main Photo Container */}
+              <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent rounded-full blur-3xl opacity-50" />
+                <div className="relative h-full w-full rounded-full overflow-hidden border-8 border-[#1A1A1F] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
+                  <img
+                    src={shamanthPhoto}
+                    alt="Shamanth Kumar M"
+                    className="w-full h-full object-cover scale-110 translate-y-4"
+                  />
+                </div>
+              </div>
+
+              {/* Background Shapes */}
+              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/5 rounded-full" />
+              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] border border-white/5 rounded-full" />
             </div>
           </motion.div>
-
-          {/* Content */}
-          <div className="text-center lg:text-left max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              <p className="text-primary font-medium mb-2">Hello, I'm</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                Shamanth Kumar M
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-2">
-                Project Lead • Agile Delivery Leader • AI-First Builder
-              </p>
-              <p className="text-2xl md:text-3xl font-semibold text-gradient mb-6">
-                "Clarity. Ownership. Impact."
-              </p>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="flex flex-wrap justify-center lg:justify-start gap-3 mb-8"
-            >
-              {stats.map((stat, index) => (
-                <div
-                  key={index}
-                  className="glass px-4 py-2 rounded-full flex items-center gap-2"
-                >
-                  <stat.icon className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium">{stat.label}</span>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-wrap justify-center lg:justify-start gap-4"
-            >
-              <Button
-                size="lg"
-                onClick={scrollToProjects}
-                className="rounded-full px-8"
-              >
-                View Work
-                <ArrowDown className="ml-2 h-4 w-4" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full px-8"
-                asChild
-              >
-                <a
-                  href="https://linkedin.com/in/shamanthkumarm"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Linkedin className="mr-2 h-4 w-4" />
-                  Connect on LinkedIn
-                </a>
-              </Button>
-            </motion.div>
-          </div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Bottom Navigation Cue */}
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center"
+          animate={{ opacity: [0.3, 1, 0.3] }}
+          transition={{ duration: 3, repeat: Infinity }}
         >
-          <ArrowDown className="w-6 h-6 text-muted-foreground" />
+          <span className="text-[10px] uppercase tracking-[0.3em] opacity-50 block mb-2">Scroll for more</span>
+          <ArrowDown className="w-5 h-5 mx-auto opacity-50" />
         </motion.div>
       </div>
     </section>
