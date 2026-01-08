@@ -34,6 +34,10 @@ export const ContactSection = () => {
                   Have a project in mind or just want to chat leadership and AI? Drop a message.
                 </p>
                 
+                <div className="text-sm text-muted-foreground opacity-70">
+                  Currently available for leadership roles and strategic opportunities.
+                </div>
+                
                 <div className="flex gap-4">
                   <motion.a 
                     href="https://linkedin.com/in/shamanthkumarm" 

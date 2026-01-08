@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import shamanthPhoto from "@/assets/shamanth-photo.png";
 
 const stats = [
-  { icon: Clock, label: "13+ Years Experience", color: "bg-blue-500/20" },
+  { icon: Clock, label: "14+ Years Experience", color: "bg-blue-500/20" },
   { icon: Briefcase, label: "Project Lead @ SAP", color: "bg-purple-500/20" },
   { icon: Sparkles, label: "AI-First Builder", color: "bg-orange-500/20" },
 ];
@@ -47,11 +47,6 @@ export const HeroSection = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
-                 <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">
-                   Available for Leadership Roles
-                 </span>
-              </div>
               
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-[1.1]">
                 Shamanth <br />

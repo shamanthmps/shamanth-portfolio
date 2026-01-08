@@ -65,7 +65,7 @@ export const Navbar = () => {
           className="text-xl font-bold tracking-tighter flex items-center gap-2"
         >
           <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-sm">S</span>
-          SHAMANTH/K.
+          SHAMANTH
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -79,7 +79,7 @@ export const Navbar = () => {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              {link.label}.
+              {link.label}
             </button>
           ))}
           <Button size="sm" variant="default" className="rounded-full px-6 bg-white text-black hover:bg-white/90">
