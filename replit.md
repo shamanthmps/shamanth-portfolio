@@ -31,22 +31,20 @@ src/
 - **Command**: `npm run dev`
 
 ## GitHub Deployment (Manual)
-To push this project to GitHub using the provided `GITHUB_TOKEN`:
-1. Open the **Shell** tab.
-2. Run the following commands:
+To push this project to GitHub reliably:
+
+1. Create a Personal Access Token (PAT) on GitHub (Settings > Developer Settings > Personal Access Tokens > Tokens Classic) with `repo` scope.
+2. In Replit, open the **Secrets** tab and create a new secret:
+   - Key: `GIT_URL`
+   - Value: `https://shamanthmps:<your-token>@github.com/shamanthmps/shamanth-portfolio.git`
+3. Open the **Shell** tab and run:
    ```bash
-   # Initialize git (if not already done)
-   git init
-   git config user.email "your-email@example.com"
-   git config user.name "Your Name"
-   git add .
-   git commit -m "Initial commit from Replit"
-
-   # Create a repository on GitHub (replace <repo-name> with your choice)
-   curl -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/user/repos -d '{"name":"<repo-name>"}'
-
-   # Add remote and push
-   git remote add origin https://x-access-token:$GITHUB_TOKEN@github.com/your-username/<repo-name>.git
-   git branch -M main
+   # Add the remote using the secret (if origin already exists, remove it first)
+   git remote remove origin 
+   git remote add origin $GIT_URL
+   
+   # Push the changes
    git push -u origin main
    ```
+
+*Note: The `$GIT_URL` will automatically expand in the shell to include your credentials securely.*
