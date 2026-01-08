@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 const projects = [
   {
     title: "Tuition Management System",
-    role: "Full-Stack Developer",
     description:
       "A complete full-stack application built from concept to deployment, demonstrating system thinking, automation, and applied AI. This project showcases end-to-end delivery capabilities from ideation to production.",
     icon: Layers,
@@ -22,7 +21,6 @@ const projects = [
   },
   {
     title: "Sprint Capacity Tracker",
-    role: "Agile Project Lead",
     description:
       "An AI-assisted capacity planning tool that replaced Excel-based sprint planning. Provides real-time capacity visibility and commitment accuracy, now used in actual Agile delivery environments across multiple teams.",
     icon: BarChart3,
@@ -83,8 +81,7 @@ export const ProjectsSection = () => {
                        <div className="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-6 shadow-2xl">
                          <project.icon className="w-10 h-10 text-white" />
                        </div>
-                       <h3 className="text-3xl font-bold text-white mb-2">{project.title}</h3>
-                       <span className="text-white/70 font-medium uppercase tracking-widest text-xs">{project.role}</span>
+                       <h3 className="text-3xl font-bold text-white">{project.title}</h3>
                      </div>
                   </div>
                   

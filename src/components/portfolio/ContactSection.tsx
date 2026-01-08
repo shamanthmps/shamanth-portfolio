@@ -35,7 +35,7 @@ export const ContactSection = () => {
                 </p>
                 
                 <div className="text-sm text-muted-foreground opacity-70">
-                  Currently available for leadership roles and strategic opportunities.
+                  Open to meaningful leadership conversations and strategic collaborations.
                 </div>
                 
                 <div className="flex gap-4">

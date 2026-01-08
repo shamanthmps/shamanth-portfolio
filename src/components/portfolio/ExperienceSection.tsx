@@ -31,19 +31,46 @@ export const ExperienceSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          {/* Design Layout: Big Header + Small Sub */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-white/10 pb-12">
-            <div>
+          {/* Design Layout: Optimized for space */}
+          <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8 mb-16 border-b border-white/10 pb-12">
+            <div className="lg:w-1/2">
               <span className="text-primary font-mono text-xs tracking-widest uppercase mb-4 block">/ EXPERIENCE</span>
-              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">
-                Professional <br />
-                <span className="text-muted-foreground italic font-serif opacity-50">Journey</span>
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter">
+                Professional <span className="text-muted-foreground italic font-serif opacity-50">Journey</span>
               </h2>
             </div>
-            <div className="max-w-md">
-              <p className="text-xl text-muted-foreground">
-                I enjoy solving problems with clean scalable solutions. I have a genuine passion for inspiring design and agile leadership.
+            <div className="lg:w-1/2">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                I enjoy solving complex problems through clean, scalable solutions, with a strong passion for thoughtful design and purpose-driven agile leadership.
               </p>
+              
+              {/* Key Strengths */}
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10">
+                  <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+                    <span className="text-primary font-bold text-sm">CS</span>
+                  </div>
+                  <span className="text-sm font-medium">Complex Solutions</span>
+                </div>
+                <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10">
+                  <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+                    <span className="text-primary font-bold text-sm">TD</span>
+                  </div>
+                  <span className="text-sm font-medium">Thoughtful Design</span>
+                </div>
+                <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10">
+                  <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+                    <span className="text-primary font-bold text-sm">PD</span>
+                  </div>
+                  <span className="text-sm font-medium">Purpose-Driven</span>
+                </div>
+                <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10">
+                  <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+                    <span className="text-primary font-bold text-sm">AL</span>
+                  </div>
+                  <span className="text-sm font-medium">Agile Leadership</span>
+                </div>
+              </div>
             </div>
           </div>
 
