@@ -10,7 +10,7 @@
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 263.4 70% 50.4%;
+    --primary: 45 100% 50%;
     --primary-foreground: 210 40% 98%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
@@ -22,7 +22,7 @@
     --destructive-foreground: 0 0% 98%;
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 263.4 70% 50.4%;
+    --ring: 45 100% 50%;
     --radius: 0.75rem;
     
     /* Custom portfolio colors - Adam Zonski inspired */
@@ -30,7 +30,7 @@
     --hero-gradient-end: 240 10% 7%;
     --glass: 240 10% 10% / 0.5;
     --glass-border: 0 0% 100% / 0.1;
-    --text-gradient-start: 263.4 70% 50.4%;
+    --text-gradient-start: 45 100% 50%;
     --text-gradient-end: 180 100% 50%;
   }
 
@@ -41,7 +41,7 @@
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 263.4 70% 50.4%;
+    --primary: 45 100% 50%;
     --primary-foreground: 210 40% 98%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
@@ -53,7 +53,7 @@
     --destructive-foreground: 0 0% 98%;
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 263.4 70% 50.4%;
+    --ring: 45 100% 50%;
   }
 }
 

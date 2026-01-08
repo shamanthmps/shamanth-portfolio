@@ -42,7 +42,7 @@ const skillCategories = [
   {
     title: "AI & Automation",
     icon: Sparkles,
-    color: "from-purple-500 to-violet-500",
+    color: "from-yellow-500 to-amber-500",
     skills: ["AI-Assisted Tools", "Workflow Automation", "Practical AI", "Productivity Enhancement"],
   },
 ];

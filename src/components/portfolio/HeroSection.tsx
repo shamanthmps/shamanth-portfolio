@@ -5,7 +5,7 @@ import shamanthPhoto from "@/assets/shamanth-photo.png";
 
 const stats = [
   { icon: Clock, label: "14+ Years Experience", color: "bg-blue-500/20" },
-  { icon: Briefcase, label: "Project Lead @ SAP", color: "bg-purple-500/20" },
+  { icon: Briefcase, label: "Project Lead @ SAP", color: "bg-yellow-500/20" },
   { icon: Sparkles, label: "AI-First Builder", color: "bg-orange-500/20" },
 ];
 
@@ -22,7 +22,7 @@ export const HeroSection = () => {
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0">
         <div className="circle-glow top-1/4 left-1/4 bg-primary" />
-        <div className="circle-glow bottom-1/4 right-1/4 bg-purple-600" />
+        <div className="circle-glow bottom-1/4 right-1/4 bg-yellow-600" />
         
         {/* Floating Rings */}
         <motion.div 
@@ -143,7 +143,7 @@ export const HeroSection = () => {
                   <img
                     src={shamanthPhoto}
                     alt="Shamanth Kumar M"
-                    className="w-full h-full object-cover scale-110 translate-y-4"
+                    className="w-full h-full object-cover scale-105 object-top"
                   />
                 </div>
               </div>

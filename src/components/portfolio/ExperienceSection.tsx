@@ -51,12 +51,8 @@ export const ExperienceSection = () => {
             {/* Stats Sidebar from Image */}
             <div className="lg:col-span-4 flex flex-col gap-12">
               <div className="flex flex-col gap-2">
-                <span className="text-5xl font-bold text-primary">13+</span>
+                <span className="text-5xl font-bold text-primary">14+</span>
                 <span className="text-sm font-semibold uppercase tracking-widest opacity-50">Years of Experience</span>
-              </div>
-              <div className="flex flex-col gap-2">
-                <span className="text-5xl font-bold text-primary">199+</span>
-                <span className="text-sm font-semibold uppercase tracking-widest opacity-50">Satisfied Stakeholders</span>
               </div>
               
               <div className="mt-8 p-6 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
