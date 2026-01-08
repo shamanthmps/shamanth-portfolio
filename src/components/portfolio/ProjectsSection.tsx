@@ -72,25 +72,25 @@ export const ProjectsSection = () => {
               >
                 {/* Modern Card Design from Image */}
                 <div className="bg-[#14141A] rounded-[2.5rem] overflow-hidden border border-white/5 transition-all duration-500 hover:border-white/20 hover:-translate-y-2 flex flex-col h-full">
-                  <div className={`h-80 w-full ${project.color} relative overflow-hidden flex items-center justify-center p-12`}>
+                  <div className={`h-64 w-full ${project.color} relative overflow-hidden flex items-center justify-center p-10`}>
                      {/* Floating Icons Background */}
                      <project.icon className="absolute w-64 h-64 text-white/10 -bottom-12 -right-12" />
                      
                      {/* Highlight circles */}
                      <div className="relative z-10 flex flex-col items-center text-center">
-                       <div className="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-6 shadow-2xl">
+                       <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-4 shadow-2xl">
                          <project.icon className="w-10 h-10 text-white" />
                        </div>
-                       <h3 className="text-3xl font-bold text-white">{project.title}</h3>
+                       <h3 className="text-2xl font-bold text-white">{project.title}</h3>
                      </div>
                   </div>
                   
-                  <div className="p-8 md:p-10 flex-1 flex flex-col">
-                    <p className="text-muted-foreground text-lg mb-8 line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
+                  <div className="p-6 md:p-8 flex-1 flex flex-col">
+                    <p className="text-muted-foreground text-base mb-6 line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
                       {project.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-2 mb-8">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.map((tag, tIndex) => (
                         <span key={tIndex} className="px-4 py-1.5 rounded-full bg-white/5 text-xs font-semibold text-white/80 border border-white/10">
                           {tag}
@@ -100,7 +100,7 @@ export const ProjectsSection = () => {
 
                     <div className="mt-auto">
                       <Button
-                        className="w-full rounded-2xl h-14 text-lg bg-white text-black hover:bg-white/90 group"
+                        className="w-full rounded-2xl h-12 text-base bg-white text-black hover:bg-white/90 group"
                         asChild
                       >
                         <a href={project.link} target="_blank" rel="noopener noreferrer">
