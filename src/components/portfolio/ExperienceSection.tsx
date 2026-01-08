@@ -96,8 +96,7 @@ export const ExperienceSection = () => {
             {/* Experience Card */}
             <div className="lg:col-span-8">
               <div className="bg-[#14141A] p-8 md:p-12 rounded-3xl border border-white/5 relative group">
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-10">
-                  <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4">
                     <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:bg-primary/20 transition-colors">
                       <Building2 className="w-8 h-8 text-primary" />
                     </div>
@@ -106,19 +105,8 @@ export const ExperienceSection = () => {
                       <p className="text-lg text-primary font-medium tracking-tight">Senior Scrum Master & Project Lead</p>
                     </div>
                   </div>
-                  <div className="flex flex-col items-end gap-1">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground bg-white/5 px-3 py-1 rounded-full">
-                      <Calendar className="w-3 h-3" />
-                      <span>Jan 2025 – Present</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mt-2">
-                      <MapPin className="w-3 h-3" />
-                      <span>Bengaluru, India</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div className="grid md:grid-cols-2 gap-x-8 gap-y-4 mb-10">
+                <div className="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-4 mb-10">
                   {displayedAchievements.map((achievement, index) => (
                     <motion.div
                       key={index}
