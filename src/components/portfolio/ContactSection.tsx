@@ -1,10 +1,19 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Send, Linkedin, Mail, ArrowRight } from "lucide-react";
+import { Send, Linkedin, Mail, ArrowRight, MessageCircle } from "lucide-react";
+
+// Custom LinkedIn Icon for dark theme
+const LinkedInIcon = ({ className }: { className?: string }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    fill="currentColor" 
+    className={className}
+  >
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+  </svg>
+);
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 
 export const ContactSection = () => {
   const ref = useRef(null);
@@ -34,10 +43,6 @@ export const ContactSection = () => {
                   Have a project in mind or just want to chat leadership and AI? Drop a message.
                 </p>
                 
-                <div className="text-sm text-muted-foreground opacity-70">
-                  Open to meaningful leadership conversations and strategic collaborations.
-                </div>
-                
                 <div className="flex gap-4">
                   <motion.a 
                     href="https://linkedin.com/in/shamanthkumarm" 
@@ -45,7 +50,7 @@ export const ContactSection = () => {
                     rel="noreferrer"
                     className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary transition-colors group"
                   >
-                    <Linkedin className="w-6 h-6 text-white" />
+                    <LinkedInIcon className="w-6 h-6 text-white" />
                   </motion.a>
                   <motion.a 
                     href="mailto:shamanthcareers@gmail.com" 
@@ -57,37 +62,49 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            {/* Right Form */}
+            {/* Right Contact Card */}
             <div className="bg-[#14141A] p-8 md:p-12 rounded-[2.5rem] border border-white/5 shadow-2xl">
-              <form className="space-y-6">
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest opacity-50 font-bold">Your name:</label>
-                  <Input 
-                    placeholder="John Doe" 
-                    className="bg-transparent border-0 border-b border-white/10 rounded-none h-12 focus-visible:ring-0 focus-visible:border-primary px-0 text-lg"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest opacity-50 font-bold">Your email address:</label>
-                  <Input 
-                    type="email" 
-                    placeholder="john@example.com" 
-                    className="bg-transparent border-0 border-b border-white/10 rounded-none h-12 focus-visible:ring-0 focus-visible:border-primary px-0 text-lg"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest opacity-50 font-bold">Tell about the project:</label>
-                  <Textarea 
-                    placeholder="I'd like to talk about..." 
-                    className="bg-transparent border-0 border-b border-white/10 rounded-none min-h-[120px] focus-visible:ring-0 focus-visible:border-primary px-0 text-lg resize-none"
-                  />
+              <div className="space-y-8">
+                {/* Icon and Title */}
+                <div className="text-center">
+                  <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mx-auto mb-6">
+                    <MessageCircle className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">Start a Conversation</h3>
+                  <p className="text-muted-foreground">Reach out via email or LinkedIn</p>
                 </div>
                 
-                <Button className="w-full h-14 rounded-2xl bg-primary hover:bg-primary/90 text-lg font-bold group">
-                  Send Message
-                  <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </Button>
-              </form>
+                {/* Contact Buttons */}
+                <div className="space-y-4">
+                  <Button 
+                    className="w-full h-14 rounded-2xl bg-primary hover:bg-primary/90 text-lg font-bold group"
+                    asChild
+                  >
+                    <a href="mailto:shamanthcareers@gmail.com">
+                      Email Me
+                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </Button>
+                  
+                  <Button 
+                    variant="outline" 
+                    className="w-full h-14 rounded-2xl border-[#0A66C2] hover:bg-[#0A66C2]/10 hover:border-[#0A66C2]/80 text-lg font-bold group text-[#0A66C2] hover:text-[#0A66C2]"
+                    asChild
+                  >
+                    <a href="https://linkedin.com/in/shamanthkumarm" target="_blank" rel="noopener noreferrer">
+                      Connect on LinkedIn
+                      <LinkedInIcon className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </Button>
+                </div>
+                
+                {/* Additional Info */}
+                <div className="text-center pt-4 border-t border-white/5">
+                  <p className="text-sm text-muted-foreground opacity-70">
+                    Open to meaningful leadership conversations and strategic collaborations.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>

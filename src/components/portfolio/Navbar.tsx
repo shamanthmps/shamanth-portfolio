@@ -82,7 +82,12 @@ export const Navbar = () => {
               {link.label}
             </button>
           ))}
-          <Button size="sm" variant="default" className="rounded-full px-6 bg-white text-black hover:bg-white/90">
+          <Button 
+            size="sm" 
+            variant="default" 
+            className="rounded-full px-6 bg-white text-black hover:bg-white/90"
+            onClick={() => scrollToSection("#contact")}
+          >
             Let's Talk
           </Button>
         </div>
