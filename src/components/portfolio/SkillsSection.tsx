@@ -11,7 +11,8 @@ import {
   Users,
   Settings,
   Brain,
-  Zap
+  Zap,
+  Compass
 } from "lucide-react";
 
 const skillCategories = [
@@ -44,6 +45,12 @@ const skillCategories = [
     icon: Sparkles,
     color: "from-yellow-500 to-amber-500",
     skills: ["AI-Assisted Tools", "Workflow Automation", "Practical AI", "Productivity Enhancement"],
+  },
+  {
+    title: "Strategy, Systems & Stakeholders",
+    icon: Compass,
+    color: "from-purple-500 to-indigo-500",
+    skills: ["Strategic Clarity", "Stakeholder Management", "Decision Frameworks", "Risk & Dependency Management"],
   },
 ];
 
