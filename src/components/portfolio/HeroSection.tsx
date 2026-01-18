@@ -5,8 +5,8 @@ import shamanthPhoto from "@/assets/shamanth-photo.png";
 
 const stats = [
   { icon: Clock, label: "14+ Years Experience", color: "bg-blue-500/20" },
-  { icon: Briefcase, label: "Project Lead @ SAP", color: "bg-yellow-500/20" },
-  { icon: Sparkles, label: "AI-First Builder", color: "bg-orange-500/20" },
+  { icon: Briefcase, label: "Staff TPM @ GE Healthcare", color: "bg-yellow-500/20" },
+  { icon: Sparkles, label: "AI-Driven Systems Leader", color: "bg-orange-500/20" },
 ];
 
 export const HeroSection = () => {
@@ -23,14 +23,14 @@ export const HeroSection = () => {
       <div className="absolute inset-0">
         <div className="circle-glow top-1/4 left-1/4 bg-primary" />
         <div className="circle-glow bottom-1/4 right-1/4 bg-yellow-600" />
-        
+
         {/* Floating Rings */}
-        <motion.div 
+        <motion.div
           className="circle-border w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10"
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
-        <motion.div 
+        <motion.div
           className="circle-border w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5"
           animate={{ rotate: -360 }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
@@ -39,7 +39,7 @@ export const HeroSection = () => {
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
-          
+
           {/* Content Left */}
           <div className="text-center lg:text-left flex-1 order-2 lg:order-1">
             <motion.div
@@ -47,15 +47,15 @@ export const HeroSection = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              
+
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-[1.1]">
                 Shamanth <br />
                 <span className="text-muted-foreground opacity-50 italic font-serif">Kumar M</span>
               </h1>
-              
+
               <div className="flex flex-col gap-4 mb-8">
                 <p className="text-xl md:text-2xl text-muted-foreground max-w-xl">
-                  Project Lead • Agile Delivery Leader • AI-First Builder.
+                  Staff TPM • Agile Delivery Leader • AI-Enabled Builder.
                   <span className="block mt-2 font-medium text-foreground">
                     "Clarity. Ownership. Impact."
                   </span>
@@ -120,20 +120,20 @@ export const HeroSection = () => {
           >
             <div className="relative">
               {/* Decorative Circles from Design */}
-              <motion.div 
+              <motion.div
                 className="circle-border w-24 h-24 -top-8 -left-8 bg-blue-500 text-white z-20 shadow-2xl"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
               >
-                Project<br/>Lead
+                Build with<br />Purpose
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 className="circle-border w-32 h-32 bottom-12 -right-8 bg-primary text-white z-20 shadow-2xl"
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
               >
-                AI-First<br/>Builder
+                Lead with<br />Empathy
               </motion.div>
 
               {/* Main Photo Container */}

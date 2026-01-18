@@ -1,7 +1,7 @@
 # Shamanth Kumar M - Portfolio Website
 
 ## Overview
-This is a personal portfolio website for Shamanth Kumar M, a Project Lead, Agile Delivery Leader, and AI-First Builder. The site showcases professional experience, skills, projects, and education.
+This is a personal portfolio website for Shamanth Kumar M, a Staff TPM, Agile Delivery Leader, and AI-First Builder. The site showcases professional experience, skills, projects, and education.
 
 ## Tech Stack
 - **Frontend**: React 18 with TypeScript

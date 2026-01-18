@@ -4,23 +4,45 @@ import { useRef, useState } from "react";
 import { Building2, MapPin, Calendar, ChevronDown, ChevronUp, CheckCircle2, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const achievements = [
-  "Leading high-performing Agile teams in complex enterprise environments",
-  "Built and deployed an AI-assisted Sprint Capacity Tracker, replacing Excel-based planning",
-  "Improved sprint commitment accuracy and predictability across multiple teams",
-  "Championed Agile maturity and self-organization within the organization",
-  "Introduced Jira dashboards and metrics-driven delivery practices",
-  "Drove cross-functional alignment with Product, Architecture, and QA teams",
-  "Led compliance tracking and strategic goal alignment initiatives",
-  "Led convergence across varied stakeholders in complex deliveries",
+const experiences = [
+  {
+    id: 1,
+    company: "GE Healthcare",
+    role: "Staff Technical Project Manager",
+    period: "Current",
+    achievements: [
+      "Leading technical project management for critical healthcare platforms",
+      "Driving agile delivery and operational excellence at scale",
+      "Converging cross-functional teams towards unified product goals",
+      "Leveraging AI where it meaningfully improves delivery and reduces mental friction"
+    ]
+  },
+  {
+    id: 2,
+    company: "SAP",
+    role: "Senior Scrum Master & Project Lead",
+    period: "Former",
+    achievements: [
+      "Leading high-performing Agile teams in complex enterprise environments",
+      "Built and deployed an AI-assisted Sprint Capacity Tracker, replacing Excel-based planning",
+      "Improved sprint commitment accuracy and predictability across multiple teams",
+      "Championed Agile maturity and self-organization within the organization",
+      "Introduced Jira dashboards and metrics-driven delivery practices",
+      "Drove cross-functional alignment with Product, Architecture, and QA teams",
+      "Led compliance tracking and strategic goal alignment initiatives",
+      "Led convergence across varied stakeholders in complex deliveries",
+    ]
+  }
 ];
 
 export const ExperienceSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [expandedMap, setExpandedMap] = useState<Record<number, boolean>>({});
 
-  const displayedAchievements = isExpanded ? achievements : achievements.slice(0, 4);
+  const toggleExpand = (id: number) => {
+    setExpandedMap(prev => ({ ...prev, [id]: !prev[id] }));
+  };
 
   return (
     <section id="experience" className="py-24 md:py-32 bg-[#0B0B0F] relative">
@@ -43,7 +65,7 @@ export const ExperienceSection = () => {
               <p className="text-lg text-muted-foreground leading-relaxed">
                 I enjoy solving complex problems through clean, scalable solutions, with a strong passion for thoughtful design and purpose-driven agile leadership.
               </p>
-              
+
               {/* Key Strengths */}
               <div className="mt-6 grid grid-cols-2 gap-3">
                 <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10">
@@ -81,60 +103,82 @@ export const ExperienceSection = () => {
                 <span className="text-5xl font-bold text-primary">14+</span>
                 <span className="text-sm font-semibold uppercase tracking-widest opacity-50">Years of Experience</span>
               </div>
-              
-              <div className="mt-8 p-6 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
-                 <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+
+              <div className="flex flex-col gap-4">
+                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
                     <Trophy className="w-6 h-6 text-primary" />
-                 </div>
-                 <div>
+                  </div>
+                  <div>
                     <p className="text-xs uppercase tracking-widest opacity-50">Current Role</p>
-                    <p className="font-bold">Project Lead @ SAP</p>
-                 </div>
+                    <p className="font-bold">Staff TPM @ GE Healthcare</p>
+                  </div>
+                </div>
+
+                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Building2 className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-widest opacity-50">Former Role</p>
+                    <p className="font-bold">Senior Scrum Master @ SAP</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Experience Card */}
-            <div className="lg:col-span-8">
-              <div className="bg-[#14141A] p-8 md:p-12 rounded-3xl border border-white/5 relative group">
-                <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:bg-primary/20 transition-colors">
-                      <Building2 className="w-8 h-8 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl md:text-3xl font-bold">SAP</h3>
-                      <p className="text-lg text-primary font-medium tracking-tight">Senior Scrum Master & Project Lead</p>
-                    </div>
-                  </div>
+            {/* Experience Cards */}
+            <div className="lg:col-span-8 flex flex-col gap-8">
+              {experiences.map((exp) => {
+                const isExpanded = expandedMap[exp.id] || false;
+                const displayedAchievements = isExpanded ? exp.achievements : exp.achievements.slice(0, 4);
+                const hasMore = exp.achievements.length > 4;
 
-                <div className="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-4 mb-10">
-                  {displayedAchievements.map((achievement, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ delay: 0.1 * index }}
-                      className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"
-                    >
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <p className="text-muted-foreground text-sm leading-relaxed">{achievement}</p>
-                    </motion.div>
-                  ))}
-                </div>
+                return (
+                  <div key={exp.id} className="bg-[#14141A] p-8 md:p-12 rounded-3xl border border-white/5 relative group">
+                    <div className="flex items-center gap-4">
+                      <div className={`w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:bg-primary/20 transition-colors`}>
+                        <Building2 className="w-8 h-8 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl md:text-3xl font-bold">{exp.company}</h3>
+                        <p className="text-lg text-primary font-medium tracking-tight">{exp.role}</p>
+                      </div>
+                    </div>
 
-                <div className="flex justify-center border-t border-white/5 pt-8">
-                  <Button
-                    variant="ghost"
-                    onClick={() => setIsExpanded(!isExpanded)}
-                    className="rounded-full text-primary hover:bg-primary/10 px-8"
-                  >
-                    {isExpanded ? (
-                      <><ChevronUp className="mr-2 w-4 h-4" /> Show Less</>
-                    ) : (
-                      <><ChevronDown className="mr-2 w-4 h-4" /> View All Responsibilities</>
+                    <div className="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-4 mb-4">
+                      {displayedAchievements.map((achievement, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={isInView ? { opacity: 1, x: 0 } : {}}
+                          transition={{ delay: 0.1 * index }}
+                          className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"
+                        >
+                          <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                          <p className="text-muted-foreground text-sm leading-relaxed">{achievement}</p>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    {hasMore && (
+                      <div className="flex justify-center border-t border-white/5 pt-8 mt-4">
+                        <Button
+                          variant="ghost"
+                          onClick={() => toggleExpand(exp.id)}
+                          className="rounded-full text-primary hover:bg-primary/10 px-8"
+                        >
+                          {isExpanded ? (
+                            <><ChevronUp className="mr-2 w-4 h-4" /> Show Less</>
+                          ) : (
+                            <><ChevronDown className="mr-2 w-4 h-4" /> View more Impacts</>
+                          )}
+                        </Button>
+                      </div>
                     )}
-                  </Button>
-                </div>
-              </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </motion.div>

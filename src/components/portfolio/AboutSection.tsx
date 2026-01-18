@@ -57,13 +57,13 @@ export const AboutSection = () => {
             className="glass p-8 md:p-10 rounded-2xl mb-12"
           >
             <p className="text-lg leading-relaxed text-muted-foreground">
-              Shamanth Kumar M is a purpose-driven Technical Program & Agile Delivery Leader 
-              with a passion for building high-performing teams and driving clarity in complex systems. 
-              With a strong belief that <span className="text-foreground font-medium">success is shaped more by mindset than skill</span>, 
-              he blends technical excellence with emotional intelligence to deliver meaningful outcomes.
+              Shamanth Kumar M is a purpose-driven Staff Technical Project Manager & Agile Delivery Leader
+              with a passion for building high-performing teams and driving clarity in complex systems,
+              with a strong belief that <span className="text-foreground font-medium">Sustained success is driven far more by mindset than by skill alone. </span>
+              He blends technical excellence with emotional intelligence to deliver meaningful outcomes.
             </p>
             <p className="text-lg leading-relaxed text-muted-foreground mt-4">
-              He is deeply interested in leadership development, AI-driven productivity, and helping 
+              He is deeply interested in leadership development, AI-driven productivity, and helping
               individuals and teams unlock their true potential through clarity, ownership, and continuous growth.
             </p>
           </motion.div>
