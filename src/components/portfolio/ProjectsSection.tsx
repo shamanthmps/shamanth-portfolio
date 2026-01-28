@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Layers, BarChart3, Sparkles, Database, Users, TrendingUp, ArrowRight } from "lucide-react";
+import { ExternalLink, Layers, BarChart3, Sparkles, Database, Users, TrendingUp, ArrowRight, Trophy, LineChart, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const projects = [
@@ -33,6 +33,20 @@ const projects = [
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7413549383759265792/",
     color: "bg-primary",
   },
+  {
+    title: "Professional Impact Log",
+    description:
+      "A dedicated system for capturing and analyzing high-impact corporate achievements and strategic wins as they happen.",
+    icon: Trophy,
+    tags: ["Impact Tracking", "Strategy", "Win Logging", "Analytics"],
+    highlights: [
+      { icon: Trophy, text: "Big Wins" },
+      { icon: LineChart, text: "Impact Analysis" },
+      { icon: Target, text: "Goal Tracking" },
+    ],
+    link: "https://www.linkedin.com/posts/shamanthkumarm_ai-systemsthinking-careergrowth-activity-7421060306522771456-2f-B",
+    color: "bg-emerald-600",
+  },
 ];
 
 export const ProjectsSection = () => {
@@ -54,11 +68,11 @@ export const ProjectsSection = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="flex flex-col items-center mb-20 text-center">
-             <span className="text-primary font-mono text-xs tracking-widest uppercase mb-4 block">/ PORTFOLIO</span>
-             <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6">Featured <span className="text-muted-foreground italic font-serif opacity-50">Work</span></h2>
-             <p className="text-xl text-muted-foreground max-w-2xl">
-               Real-world applications demonstrating system thinking, AI integration, and practical problem-solving.
-             </p>
+            <span className="text-primary font-mono text-xs tracking-widest uppercase mb-4 block">/ PORTFOLIO</span>
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6">Featured <span className="text-muted-foreground italic font-serif opacity-50">Work</span></h2>
+            <p className="text-xl text-muted-foreground max-w-2xl">
+              Real-world applications demonstrating system thinking, AI integration, and practical problem-solving.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
@@ -73,18 +87,18 @@ export const ProjectsSection = () => {
                 {/* Modern Card Design from Image */}
                 <div className="bg-[#14141A] rounded-[2.5rem] overflow-hidden border border-white/5 transition-all duration-500 hover:border-white/20 hover:-translate-y-2 flex flex-col h-full">
                   <div className={`h-64 w-full ${project.color} relative overflow-hidden flex items-center justify-center p-10`}>
-                     {/* Floating Icons Background */}
-                     <project.icon className="absolute w-64 h-64 text-white/10 -bottom-12 -right-12" />
-                     
-                     {/* Highlight circles */}
-                     <div className="relative z-10 flex flex-col items-center text-center">
-                       <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-4 shadow-2xl">
-                         <project.icon className="w-10 h-10 text-white" />
-                       </div>
-                       <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-                     </div>
+                    {/* Floating Icons Background */}
+                    <project.icon className="absolute w-64 h-64 text-white/10 -bottom-12 -right-12" />
+
+                    {/* Highlight circles */}
+                    <div className="relative z-10 flex flex-col items-center text-center">
+                      <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-4 shadow-2xl">
+                        <project.icon className="w-10 h-10 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+                    </div>
                   </div>
-                  
+
                   <div className="p-6 md:p-8 flex-1 flex flex-col">
                     <p className="text-muted-foreground text-base mb-6 line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
                       {project.description}
