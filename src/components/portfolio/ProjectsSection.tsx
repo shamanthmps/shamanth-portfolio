@@ -36,7 +36,7 @@ const projects = [
   {
     title: "Professional Impact Log",
     description:
-      "A dedicated system for capturing and analyzing high-impact corporate achievements and strategic wins as they happen.",
+      "Impact Log helps you track your work impact in a clear, structured way using the proven CAR framework. It makes it easier to communicate your impact in career discussions, performance reviews, and interviews.",
     icon: Trophy,
     tags: ["Impact Tracking", "Strategy", "Win Logging", "Analytics"],
     highlights: [
