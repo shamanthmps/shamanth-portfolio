@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink, Layers, BarChart3, Sparkles, Database, Users, TrendingUp, ArrowRight, Trophy, LineChart, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BauhausWrapper } from "@/components/ui/bauhaus-wrapper";
 
 const projects = [
   {
@@ -18,6 +19,7 @@ const projects = [
     ],
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7410621986688708609/",
     color: "bg-indigo-600",
+    accentColor: "#156ef6", // Blue
   },
   {
     title: "Sprint Capacity Tracker",
@@ -32,6 +34,7 @@ const projects = [
     ],
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7413549383759265792/",
     color: "bg-primary",
+    accentColor: "#EAB308", // Yellow
   },
   {
     title: "Professional Impact Log",
@@ -46,6 +49,7 @@ const projects = [
     ],
     link: "https://www.linkedin.com/posts/shamanthkumarm_ai-systemsthinking-careergrowth-activity-7421060306522771456-2f-B",
     color: "bg-emerald-600",
+    accentColor: "#10B981", // Green
   },
 ];
 
@@ -54,7 +58,7 @@ export const ProjectsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-24 md:py-32 bg-[#0B0B0F] relative overflow-hidden">
+    <section id="projects" className="py-24 md:py-32 relative overflow-hidden">
       {/* Decorative text background */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 text-[20vw] font-bold text-white/[0.02] select-none pointer-events-none tracking-tighter">
         PROJECTS
@@ -75,56 +79,64 @@ export const ProjectsSection = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 gap-y-20 max-w-7xl mx-auto place-items-center">
             {projects.map((project, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 + index * 0.2 }}
-                className="group relative"
+                className="w-full flex justify-center group h-full"
               >
-                {/* Modern Card Design from Image */}
-                <div className="bg-[#14141A] rounded-[2.5rem] overflow-hidden border border-white/5 transition-all duration-500 hover:border-white/20 hover:-translate-y-2 flex flex-col h-full">
-                  <div className={`h-64 w-full ${project.color} relative overflow-hidden flex items-center justify-center p-10`}>
-                    {/* Floating Icons Background */}
-                    <project.icon className="absolute w-64 h-64 text-white/10 -bottom-12 -right-12" />
+                <BauhausWrapper
+                  accentColor={project.accentColor}
+                  className="w-full h-full"
+                  borderRadius="2.5rem"
+                >
+                  <div className="relative flex flex-col h-full rounded-[2.5rem] overflow-hidden bg-[#14141A]">
+                    <div className={`h-64 w-full ${project.color} relative overflow-hidden flex items-center justify-center p-6 md:p-10`}>
+                      {/* Floating Icons Background */}
+                      <project.icon className="absolute w-64 h-64 text-white/10 -bottom-12 -right-12" />
 
-                    {/* Highlight circles */}
-                    <div className="relative z-10 flex flex-col items-center text-center">
-                      <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-4 shadow-2xl">
-                        <project.icon className="w-10 h-10 text-white" />
+                      {/* Highlight circles */}
+                      <div className="relative z-10 flex flex-col items-center text-center">
+                        <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-4 shadow-2xl">
+                          <project.icon className="w-10 h-10 text-white" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-white">{project.title}</h3>
                       </div>
-                      <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+                    </div>
+
+                    <div className="p-6 md:p-8 flex-1 flex flex-col bg-[#14141A]">
+                      <p className="text-muted-foreground text-base mb-6">
+                        {project.description}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {project.tags.map((tag, tIndex) => (
+                          <span
+                            key={tIndex}
+                            className="px-4 py-1.5 rounded-full bg-white/5 text-xs font-semibold text-white/80 border border-white/10"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="mt-auto">
+                        <Button
+                          className="w-full rounded-2xl h-12 text-base bg-white text-black hover:bg-[var(--card-accent)] hover:text-white transition-colors duration-300 group bauhaus-button"
+                          asChild
+                        >
+                          <a href={project.link} target="_blank" rel="noopener noreferrer">
+                            View Case Study
+                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                          </a>
+                        </Button>
+                      </div>
                     </div>
                   </div>
-
-                  <div className="p-6 md:p-8 flex-1 flex flex-col">
-                    <p className="text-muted-foreground text-base mb-6 line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
-                      {project.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tags.map((tag, tIndex) => (
-                        <span key={tIndex} className="px-4 py-1.5 rounded-full bg-white/5 text-xs font-semibold text-white/80 border border-white/10">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="mt-auto">
-                      <Button
-                        className="w-full rounded-2xl h-12 text-base bg-white text-black hover:bg-white/90 group"
-                        asChild
-                      >
-                        <a href={project.link} target="_blank" rel="noopener noreferrer">
-                          View Case Study
-                          <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
+                </BauhausWrapper>
               </motion.div>
             ))}
           </div>
