@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { 
-  Target, 
-  GitBranch, 
-  Wrench, 
-  Heart, 
+import {
+  Target,
+  GitBranch,
+  Wrench,
+  Heart,
   Sparkles,
   BarChart3,
   Users,
@@ -15,41 +15,49 @@ import {
   Compass
 } from "lucide-react";
 
+import { BauhausWrapper } from "@/components/ui/bauhaus-wrapper";
+
 const skillCategories = [
   {
     title: "Agile & Delivery",
     icon: Target,
     color: "from-blue-500 to-cyan-500",
+    accentColor: "#3b82f6", // Blue-500
     skills: ["Scrum", "Agile Coaching", "Scaled Delivery", "Sprint Planning", "Predictability", "Metrics"],
   },
   {
     title: "DevOps & Project Management",
     icon: GitBranch,
     color: "from-green-500 to-emerald-500",
+    accentColor: "#22c55e", // Green-500
     skills: ["Delivery Orchestration", "Cross-functional Coordination", "Release Management", "CI/CD Awareness"],
   },
   {
     title: "Technical & Tools",
     icon: Wrench,
     color: "from-orange-500 to-amber-500",
+    accentColor: "#f97316", // Orange-500
     skills: ["Jira", "Dashboards", "Automation", "System Thinking", "Data-Driven Decisions"],
   },
   {
     title: "Leadership & Mindset",
     icon: Heart,
     color: "from-pink-500 to-rose-500",
+    accentColor: "#ec4899", // Pink-500
     skills: ["Emotional Intelligence", "Ownership Culture", "Purpose-Driven Leadership", "Team Development"],
   },
   {
     title: "AI & Automation",
     icon: Sparkles,
     color: "from-yellow-500 to-amber-500",
+    accentColor: "#eab308", // Yellow-500
     skills: ["AI-Assisted Tools", "Workflow Automation", "Practical AI", "Productivity Enhancement"],
   },
   {
     title: "Strategy, Systems & Stakeholders",
     icon: Compass,
     color: "from-purple-500 to-indigo-500",
+    accentColor: "#a855f7", // Purple-500
     skills: ["Strategic Clarity", "Stakeholder Management", "Decision Frameworks", "Risk & Dependency Management"],
   },
 ];
@@ -95,30 +103,36 @@ export const SkillsSection = () => {
                 transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
                 className="group"
               >
-                <div className="glass rounded-2xl p-6 h-full hover:shadow-lg transition-all duration-300">
-                  {/* Header */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className={`p-3 rounded-xl bg-gradient-to-br ${category.color} text-white`}>
-                      <category.icon className="w-6 h-6" />
+                <BauhausWrapper
+                  accentColor={category.accentColor}
+                  className="w-full h-full"
+                  borderRadius="1rem"
+                >
+                  <div className="bg-[#14141A] rounded-2xl p-6 h-full hover:shadow-lg transition-all duration-300">
+                    {/* Header */}
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className={`p-3 rounded-xl bg-gradient-to-br ${category.color} text-white`}>
+                        <category.icon className="w-6 h-6" />
+                      </div>
+                      <h3 className="font-semibold text-lg">{category.title}</h3>
                     </div>
-                    <h3 className="font-semibold text-lg">{category.title}</h3>
-                  </div>
 
-                  {/* Skills */}
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill, sIndex) => (
-                      <motion.span
-                        key={sIndex}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ delay: 0.3 + index * 0.1 + sIndex * 0.05, duration: 0.3 }}
-                        className="px-3 py-1.5 text-sm rounded-lg bg-muted hover:bg-primary/10 hover:text-primary transition-colors duration-200 cursor-default"
-                      >
-                        {skill}
-                      </motion.span>
-                    ))}
+                    {/* Skills */}
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill, sIndex) => (
+                        <motion.span
+                          key={sIndex}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                          transition={{ delay: 0.3 + index * 0.1 + sIndex * 0.05, duration: 0.3 }}
+                          className="px-3 py-1.5 text-sm rounded-lg bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors duration-200 cursor-default"
+                        >
+                          {skill}
+                        </motion.span>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                </BauhausWrapper>
               </motion.div>
             ))}
           </div>
